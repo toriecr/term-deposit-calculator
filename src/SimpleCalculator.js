@@ -16,8 +16,7 @@ const SimpleCalculator = () => {
     e.preventDefault()
     const decimalInterest = interest * 0.01
     const calculatedBalance = principal * ((1 + (decimalInterest/compoundPeriods))**(compoundPeriods * time))
-    setFinalBalance(Math.round(calculatedBalance))
-
+    setFinalBalance(Math.floor(calculatedBalance))
   }
 
   return (
@@ -27,7 +26,7 @@ const SimpleCalculator = () => {
           <label>Principal:</label>
           <input 
             required
-            type='text' 
+            type='number' 
             value={principal}
             onChange={(e) => handleInputChange(e, setPrincipal)}
           />
@@ -36,7 +35,8 @@ const SimpleCalculator = () => {
           <label>Interest:</label>
           <input 
             required
-            type='text' 
+            max='100'
+            type='number' 
             value={interest}
             onChange={(e) => handleInputChange(e, setInterest)}
           />
@@ -60,7 +60,7 @@ const SimpleCalculator = () => {
           <label>Investment Term (years):</label>
           <input 
             required
-            type='text' 
+            type='number' 
             value={time}
             onChange={(e) => handleInputChange(e, setTime)}
           />
