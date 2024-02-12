@@ -59,6 +59,7 @@ const SimpleCalculator = () => {
         <div className='form-group'>
           <label>Investment Term (years):</label>
           <input 
+            required
             type='text' 
             value={time}
             onChange={(e) => handleInputChange(e, setTime)}
